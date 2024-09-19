@@ -470,7 +470,7 @@ To make your application accessible via the web, follow these additional steps:
          server_name your_domain_or_IP;
 
          location / {
-             proxy_pass http://localhost:7000;
+             proxy_pass http://localhost:8081;
              proxy_set_header Host $host;
              proxy_set_header X-Real-IP $remote_addr;
              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
