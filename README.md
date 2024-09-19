@@ -24,7 +24,12 @@
 
 ## Description
 
+## Description
+
 Welcome to the **Real-Time Transcriber and Translator Guide**! This guide will walk you through building, deploying, and using a real-time transcription and translation system. In this example, we focus on translating from German to English, but the setup can be easily adjusted for other languages supported by `whisper-large-v3`.
+
+This entire project was built on a consumer PC with an NVIDIA 3060, showcasing that high-performance transcription and translation can be achieved without enterprise-grade hardware.
+
 
 ## Features
 
