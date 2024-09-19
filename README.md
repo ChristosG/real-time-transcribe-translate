@@ -415,11 +415,89 @@ Ensure the following dependencies are installed:
 - **React App Issues:**
   - Verify Node.js and npm are correctly installed.
   - Check API endpoint configurations in `App.tsx`.
+ 
+
+
+## Common Issues I Dealt With
+
+- **Version Mismatch Between TensorRT-LLM Engine Builder and Triton:**
+  Ensure that both the TensorRT-LLM engine builder and Triton are using the exact same version to avoid compatibility issues.
+
+- **LLaMA 3.1 Requires a Newer Transformers Library:**
+  The LLaMA 3.1 model needs a more recent version of the `transformers` library than what the current TensorRT-LLM version provides. To resolve this, update the `transformers` library accordingly.
+
+- **Docker Runtime Configuration on Ubuntu:**
+  On Ubuntu, Docker may require using `--runtime=nvidia` instead of `--gpus=all` to properly utilize NVIDIA GPUs. Use the following command to verify:
+  
+  ```bash
+  docker run --rm --runtime=nvidia nvidia-smi
+  ```
+
+- **Resolving Errors in the Triton-TRTLLM Container:**
+  If you encounter errors within the Triton-TRTLLM container, try the following steps inside the container to uninstall conflicting packages and install the correct versions:
+
+  ```bash
+  pip3 uninstall -y tensorrt tensorrt-cu12 tensorrt-cu12-bindings tensorrt-cu12-libs tensorrt-llm torch
+  pip3 install tensorrt_llm==0.13.0.dev2024082000 -U --pre --extra-index-url https://pypi.nvidia.com
+  pip install -U transformers
+  ```
+
+  These commands ensure that `tensorrt_llm` and `transformers` are compatible with LLaMA 3.1.
+
+## Extras: Display It on the Web!
+
+To make your application accessible via the web, follow these additional steps:
+
+1. **Port Forwarding on Your Router:**
+   
+   - **Access Router Settings:** Log in to your router's administration page. This is usually accessible by entering `192.168.1.1` or a similar IP address into your web browser.
+   
+   - **Forward Necessary Ports:** Forward the following ports to your local machine:
+     - **Port 80:** For HTTP traffic.
+     - **Port 7000:** For your proxy server.
+     
+     *Note:* You can adjust these ports based on your specific requirements.
+
+2. **Proxy Configuration (Optional):**
+   
+   - **Set Up NGINX:** To display the web page on the default HTTP port (`80`), you might need to set up a proxy server like NGINX. This will route incoming traffic on port `80` to your application's port.
+   
+   - **Example NGINX Configuration:**
+     
+     ```nginx
+     server {
+         listen 80;
+         server_name your_domain_or_IP;
+
+         location / {
+             proxy_pass http://localhost:7000;
+             proxy_set_header Host $host;
+             proxy_set_header X-Real-IP $remote_addr;
+             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+             proxy_set_header X-Forwarded-Proto $scheme;
+         }
+     }
+     ```
+     
+     Replace `your_domain_or_IP` with your actual domain or external IP address.
+
+3. **Using Dynamic DNS with DuckDNS:**
+   
+   - **Register on DuckDNS:** Visit [DuckDNS](https://www.duckdns.org/) and create a free account.
+   
+   - **Create a Subdomain:** Choose a unique keyword to create a subdomain that will point to your external IP address.
+   
+   - **Update Your DNS Settings:** Follow DuckDNS's instructions to update your DNS settings, ensuring that your external IP is masked with your chosen keyword.
+   
+   - **Access Your Application:** After setting up DuckDNS, you can access your web application using `http://yourkeyword.duckdns.org` or a similar URL, depending on your configuration.
+
+These additional steps will help you make your real-time transcriber and translator accessible from anywhere via the web.
+
 
 
 ## Contact
 
 - **Author:** Christos Grigoriadis
 - **Email:** cgrigoriadis@outlook.com
-```
+
 
