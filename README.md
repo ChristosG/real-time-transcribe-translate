@@ -66,7 +66,7 @@ sudo apt install -y nvidia-container-toolkit
 
 # Restart Docker to apply changes
 sudo systemctl restart docker
-```
+
 
 ### Install FFmpeg
 
@@ -415,4 +415,4 @@ Ensure the following dependencies are installed:
 - **Author:** Christos Grigoriadis
 - **Email:** cgrigoriadis@outlook.com
 ```
-```
+
