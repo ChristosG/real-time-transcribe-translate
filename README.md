@@ -105,9 +105,12 @@ sudo apt install -y nodejs npm
 
 ### Step 2: Build and Deploy Models
 
-bash ```
-Shout out to [Sherpa Triton Whisper Guide](https://github.com/k2-fsa/sherpa/tree/master/triton/whisper) for their slick instructions on building the Whisper TRT engine.
-```  
+<details>
+  <summary>Shout out to Sherpa Triton Whisper Guide for their slick instructions on building the Whisper TRT engine.</summary>
+  
+  You can check out the guide [here](https://github.com/k2-fsa/sherpa/tree/master/triton/whisper).
+</details>
+
 
 #### 2.a LLaMA 3.1 Engine
 
