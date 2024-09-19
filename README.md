@@ -303,7 +303,8 @@ sudo apt install -y nodejs npm
 
 ## Proxy Setup
 
-This section sets up a proxy to handle communication between the frontend web page and Triton server, supporting WebSockets for multiple users. **Note:** This project records audio from your PC's microphone only, but it can be adjusted to your needs.
+This section sets up a proxy to handle communication between the frontend web page and Triton server, supporting WebSockets for multiple users. **Note:** This project records audio directly from the server's PC microphone/virtual sink, not from the client-side web app (App.tsx). The setup can be adjusted to your specific needs, such as capturing audio from different sources or environments on the server.
+
 
 1. **(Optional) Set Up Python Virtual Environment**
 
