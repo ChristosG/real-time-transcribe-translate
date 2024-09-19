@@ -3,37 +3,28 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Switch } from 're
 import './index.css'; // wtf fff
 
 export default function App() {
-  // Theme state
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
-  // State for German transcription
   const [currentLineGerman, setCurrentLineGerman] = useState<string>("");
   const [previousLinesGerman, setPreviousLinesGerman] = useState<string[]>([]);
 
-  // State for English translation
   const [currentLineEnglish, setCurrentLineEnglish] = useState<string>("");
   const [previousLinesEnglish, setPreviousLinesEnglish] = useState<string[]>([]);
 
-  // Refs for ScrollViews
   const scrollViewGermanRef = useRef<ScrollView>(null);
   const scrollViewEnglishRef = useRef<ScrollView>(null);
 
-  // State to track auto-scroll behavior
   const [isAutoScrollGerman, setIsAutoScrollGerman] = useState<boolean>(true);
   const [isAutoScrollEnglish, setIsAutoScrollEnglish] = useState<boolean>(true);
 
-  // New message indicators
   const [newMessagesGerman, setNewMessagesGerman] = useState<boolean>(false);
   const [newMessagesEnglish, setNewMessagesEnglish] = useState<boolean>(false);
 
-  // Timers for auto-scroll re-enabling
   const autoScrollTimerGerman = useRef<NodeJS.Timeout | null>(null);
   const autoScrollTimerEnglish = useRef<NodeJS.Timeout | null>(null);
 
-  // Ref to store the WebSocket instance
   const wsRef = useRef<WebSocket | null>(null);
 
-  // Function to handle theme toggle
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
@@ -344,7 +335,7 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     flex: 1,
-    flexDirection: 'row', // Split the screen horizontally
+    flexDirection: 'row',
     padding: 10,
     overflow: 'hidden',
   },
