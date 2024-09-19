@@ -1,4 +1,4 @@
-```markdown
+
 # Real-Time Transcriber and Translator Guide
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
