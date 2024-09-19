@@ -22,7 +22,6 @@
 - [License](#license)
 - [Contact](#contact)
 
-## Description
 
 ## Description
 
