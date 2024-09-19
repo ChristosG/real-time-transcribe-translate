@@ -20,7 +20,7 @@
 - [Dependencies](#dependencies)
 - [Troubleshooting](#troubleshooting)
 - [Common Issues I Dealt With](#common-issues-i-dealt-with)
-- [Extras: Display It on the Web!](#extras:-display-it-on-the-web!)
+- [Extras: Display It on the Web!](#extras-display-it-on-the-web)
 - [Contact](#contact)
 
 
